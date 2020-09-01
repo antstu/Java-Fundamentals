@@ -23,7 +23,12 @@ public class Exercise_07 {
         // assign input to variable as int
         int days = scanner.nextInt();
 
-        // write completed code here
+        int seconds = days * 86_400;
+
+        System.out.println(seconds);
 
     }
+
+
+
 }

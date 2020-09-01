@@ -12,7 +12,20 @@ public class Exercise_06 {
 
     public static void main(String[] args) {
 
-        // write code here
+        calcVolArea(3.14, 5);
+
+    }
+
+
+    public static void calcVolArea(double radius, double height) {
+
+        double volume = 3.14 * Math.pow(radius,2) * height;
+        double surArea = 2 * 3.14 * Math.pow(radius,2) + (2*3.14*radius*height);
+
+
+        System.out.println(volume);
+        System.out.println(surArea);
+
 
     }
 }
