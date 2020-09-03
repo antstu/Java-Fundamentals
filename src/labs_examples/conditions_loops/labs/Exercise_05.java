@@ -16,4 +16,19 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_05 {
+
+    public static void main (String[] args) {
+        int sum = 0;
+        int lowerbound = 1;
+        int upperbound = 100;
+
+        for (int number = lowerbound; number <= upperbound; ++number) {
+            sum += number;
+        }
+      double average = ((double) lowerbound + (double) upperbound ) / 2;
+        System.out.println("Sum is: " + sum);
+
+        System.out.println("Average is : "+ average);
+
+    }
 }
