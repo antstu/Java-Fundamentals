@@ -19,15 +19,16 @@ public class Exercise_07 {
         System.out.print("In:");
         String word = input.nextLine();
 
+        String vowels = "aeiou";
+
         for(int index = 0; index < word.length(); index++){
             char c = Character.toLowerCase(word.charAt(index));
-            if (c == 'a' || c == 'e'|| c == 'i' || c == 'o' || c == 'u'){
-                System.out.println(word);
+            if (vowels.indexOf(c) >= 0){
 
+                System.out.println(word);
                 System.out.print("first vowel is: " + word.charAt(index));
                 break;
             }
-
         }
     }
 }

@@ -28,7 +28,4 @@ public class Exercise_07 {
         System.out.println(seconds);
 
     }
-
-
-
 }

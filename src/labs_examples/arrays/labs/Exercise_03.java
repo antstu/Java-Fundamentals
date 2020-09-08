@@ -26,7 +26,9 @@ public class Exercise_03 {
                 twoDArray[innerLoop][outerLoop] = innerLoop * 3;
                 System.out.print(twoDArray[outerLoop][innerLoop]);
             }
-            System.out.println();
+//            System.out.println();
         }
+
+
     }
 }

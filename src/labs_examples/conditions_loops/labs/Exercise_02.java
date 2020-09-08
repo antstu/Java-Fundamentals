@@ -27,7 +27,7 @@ public class Exercise_02 {
         // assign input to variable as int
         int number = scanner.nextInt();
 
-        if(number >= 1 || number <= 7 ) {
+        if(number >= 1 && number <= 7 ) {
             if (number == 1){
                 System.out.println("Monday");
             } else if (number == 2){
@@ -47,8 +47,5 @@ public class Exercise_02 {
         } else {
             System.out.println("Other");
         }
-
-
-
     }
 }

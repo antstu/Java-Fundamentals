@@ -14,6 +14,6 @@ public class Exercise_08 {
         do{
             System.out.println(number);
             number--;
-        } while(number>0);
+        } while(number > 0);
     }
 }

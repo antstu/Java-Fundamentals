@@ -31,7 +31,5 @@ public class Exercise_02 {
         double c = 10.5;
         int d = (int) c;
         System.out.println("The int is " + d);
-
-
     }
 }

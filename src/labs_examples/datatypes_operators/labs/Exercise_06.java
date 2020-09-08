@@ -20,7 +20,8 @@ public class Exercise_06 {
     public static void calcVolArea(double radius, double height) {
 
         double volume = 3.14 * Math.pow(radius,2) * height;
-        double surArea = 2 * 3.14 * Math.pow(radius,2) + (2*3.14*radius*height);
+        double surArea = 2 * Math.PI * Math.pow(radius,2) + (2 * Math.PI * radius * height);
+
 
 
         System.out.println(volume);
