@@ -20,5 +20,13 @@ public class Exercise_04 {
             }
             System.out.println();
         }
+
+
+        for (int[] arr : twoD) {
+            for( int value : arr) {
+                System.out.println(value);
+            }
+
+        }
     }
 }

@@ -28,11 +28,6 @@ public class Exercise_01 {
             x--;
             array[i] = scanner.nextInt();
             sum+= array[i];
-
-
-
-
-
         }
 
         double average = sum / 10;
@@ -41,10 +36,5 @@ public class Exercise_01 {
         System.out.println("Average is " + average);
 
     }
-
-
-
-
-
 
 }

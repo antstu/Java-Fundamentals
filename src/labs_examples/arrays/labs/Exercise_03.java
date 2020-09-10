@@ -21,13 +21,22 @@ public class Exercise_03 {
         int[][] twoDArray = new int[5][5];
         // use 2 for loops to populate the 2d array
         // first for loop
-        for (int innerLoop = 1; innerLoop < twoDArray.length; innerLoop++){
-            for (int outerLoop = 0; outerLoop < twoDArray[innerLoop].length; outerLoop++){
-                twoDArray[innerLoop][outerLoop] = innerLoop * 3;
-                System.out.print(twoDArray[outerLoop][innerLoop]);
+
+        int val = 3;
+
+        for (int i = 0; i < twoDArray.length; i++) {
+            for (int j = 0; j < twoDArray[i].length; j++){
+                System.out.print(val + " ");
+                val += 3;
             }
             System.out.println();
         }
+
+
+
+
+
+
 
 
     }

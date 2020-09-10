@@ -25,10 +25,8 @@ public class Exercise_02 {
         for(int i = 0; i < 9; i++) {
             if (array[i] == number) {
                 bool = true;
-                System.out.println("Number is in the array");
-            }
-            else {
-                continue;
+                System.out.println("Number is in the array at index " + i);
+                return;
             }
         }
 
