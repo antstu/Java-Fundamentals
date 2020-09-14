@@ -18,6 +18,7 @@ package labs_examples.arrays.labs;
 public class Exercise_03 {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         int[][] twoDArray = new int[5][5];
         // use 2 for loops to populate the 2d array
         // first for loop
@@ -39,5 +40,8 @@ public class Exercise_03 {
 
 
 
+=======
+        
+>>>>>>> e6093c9093e159ebaeb26d25183a47e84e09b7ed
     }
 }
