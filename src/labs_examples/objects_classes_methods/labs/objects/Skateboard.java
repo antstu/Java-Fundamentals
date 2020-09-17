@@ -18,9 +18,9 @@ class Example2 {
 
         Skateboard mySkateboard = new Skateboard(deck, wheels, trucks, bearings);
 
-        System.out.println("I ride a " + mySkateboard.deck.material + " skateboard with "
+        System.out.println("I ride a " + mySkateboard.getDeck().getMaterial() + " skateboard with "
 
-                + mySkateboard.wheels.size + "mm size wheels and " + mySkateboard.bearings.speed + " bearings");
+                + mySkateboard.getWheels().getSize() + "mm size wheels and " + mySkateboard.getBearings().getSpeed() + " bearings");
 
 
         System.out.println(mySkateboard.toString());
@@ -35,9 +35,9 @@ class Example2 {
 
         Skateboard herSkateboard = new Skateboard(herDeck, herWheels, herTrucks, herBearings);
 
-        System.out.println("She rides a " + herSkateboard.deck.material + " skateboard with "
+        System.out.println("She rides a " + herSkateboard.getDeck().getMaterial() + " skateboard with "
 
-                + herSkateboard.wheels.size + "mm size wheels and " + herSkateboard.bearings.speed + " bearings");
+                + herSkateboard.getWheels().getSize() + "mm size wheels and " + herSkateboard.getBearings().getSpeed() + " bearings");
 
 
         System.out.println(herSkateboard.toString());
@@ -49,10 +49,42 @@ class Example2 {
 
 public class Skateboard {
 
-    Deck deck;
-    Wheels wheels;
-    Trucks trucks;
-    Bearings bearings;
+    private Deck deck;
+    private Wheels wheels;
+    private Trucks trucks;
+    private Bearings bearings;
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public Wheels getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(Wheels wheels) {
+        this.wheels = wheels;
+    }
+
+    public Trucks getTrucks() {
+        return trucks;
+    }
+
+    public void setTrucks(Trucks trucks) {
+        this.trucks = trucks;
+    }
+
+    public Bearings getBearings() {
+        return bearings;
+    }
+
+    public void setBearings(Bearings bearings) {
+        this.bearings = bearings;
+    }
 
     public Skateboard(Deck deck, Wheels wheels, Trucks trucks, Bearings bearings) {
 
@@ -76,9 +108,17 @@ public class Skateboard {
 
 class Wheels {
 
-    int size;
+    private int size;
 
     public Wheels(int size) {
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -92,8 +132,24 @@ class Wheels {
 
 class Deck {
 
-    String material;
-    double size;
+    private String material;
+    private double size;
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public double getSize() {
+        return size;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
 
     public Deck(String material, double size) {
 
@@ -112,12 +168,28 @@ class Deck {
 
 class Trucks {
 
-    String material;
-    double weight;
+    private String material;
+    private double weight;
 
     public Trucks(String material, double weight) {
 
         this.material = material;
+        this.weight = weight;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -132,13 +204,21 @@ class Trucks {
 
 class Bearings {
 
-    String speed;
+    private String speed;
 
 
     public Bearings(String speed) {
 
         this.speed = speed;
 
+    }
+
+    public String getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(String speed) {
+        this.speed = speed;
     }
 
     @Override
