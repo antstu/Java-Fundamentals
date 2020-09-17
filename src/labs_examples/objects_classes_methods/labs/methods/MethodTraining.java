@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.methods;
 
+import java.util.Arrays;
+
 public class MethodTraining {
 
     private static int number = 14;
@@ -22,7 +24,9 @@ public class MethodTraining {
 
         int [] highLow = highLow(1,2,3,4,5,6,7,8);
 
-        System.out.println("High low array is " + highLow.toString());
+        System.out.println("High low array is " + Arrays.toString(highLow));
+
+        reverseArr(1,2,3,4,5,6,7);
 
 
 
@@ -147,6 +151,22 @@ public class MethodTraining {
 
 
 //    private static ArrayList<int>
+
+
+    public static void reverseArr(int... nums) {
+
+        int temp;
+
+        for(int i = 0; i < nums.length / 2; i++){
+            temp = nums[i];
+            nums[i] = nums[nums.length - 1 - i];
+            nums[nums.length - 1 - i] = temp;
+        }
+
+        System.out.println(" Reversed array is " + Arrays.toString(nums));
+
+
+    }
 
 
 
