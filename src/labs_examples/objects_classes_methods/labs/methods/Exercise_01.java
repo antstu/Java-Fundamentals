@@ -10,13 +10,17 @@ public class Exercise_01 {
         // please create the methods as instructed below then
         // call each of those methods from here, within the main()
 
-        multiply(3,5);
+        int y = multiply(3,5);
+        System.out.println(y);
 
-        divide(10,2);
+
+        double x = divide(10,2);
+        System.out.println(x);
 
         printJoke();
 
-        yearsToSec(5);
+        int seconds = yearsToSec(5);
+        System.out.println(seconds);
 
         printArgLength("Hello", "my", "name", "is");
 
@@ -64,9 +68,10 @@ public class Exercise_01 {
 
     // 5) Create a varargs method that will return the length of the varargs array passed in
 
-    private static void printArgLength(String ... args) {
+    private static void printArgLength(String... args) {
 
         System.out.println(args.length);
+
 
     }
 

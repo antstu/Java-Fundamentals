@@ -17,10 +17,15 @@ public class MethodTraining {
 
         largestNum(5,20,30,75,24,32);
 
-        countConsonants("Anthony");
+        String s = "Anthony";
 
-        printTop(10);
+        countConsonants(s);
 
+        System.out.println(s);
+
+
+        int x = 10;
+        printTop(x);
         checkPrime(5);
 
         int [] highLow = highLow(1,2,3,4,5,6,7,8);
@@ -75,18 +80,20 @@ public class MethodTraining {
 
     private static void countConsonants(String word) {
 
-        int count = 0;
+        word = "ryan";
 
-        for(int index = 0; index < word.length(); index++){
-            char c = Character.toLowerCase(word.charAt(index));
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ){
-                continue;
-            }else if(c != ' '){
-                count++;
-            }
-        }
-
-        System.out.println("Consonants: " + count);
+//        int count = 0;
+//
+//        for(int index = 0; index < word.length(); index++){
+//            char c = Character.toLowerCase(word.charAt(index));
+//            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ){
+//                continue;
+//            }else if(c != ' '){
+//                count++;
+//            }
+//        }
+//
+//        System.out.println("Consonants: " + count);
 
     }
 

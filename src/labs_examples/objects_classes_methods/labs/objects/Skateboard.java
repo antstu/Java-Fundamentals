@@ -12,9 +12,11 @@ class Example2 {
 
         Deck deck = new Deck("wood", 8.25);
 
+        String m = deck.getMaterial();
+
         Bearings bearings = new Bearings("fast");
 
-
+        int x = Math.multiplyExact(2,3);
 
         Skateboard mySkateboard = new Skateboard(deck, wheels, trucks, bearings);
 
@@ -110,8 +112,11 @@ class Wheels {
 
     private int size;
 
+    private static String color = "red";
+
     public Wheels(int size) {
         this.size = size;
+
     }
 
     public int getSize() {
