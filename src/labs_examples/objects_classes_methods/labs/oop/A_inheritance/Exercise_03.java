@@ -3,7 +3,7 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
 /**
  * Why does the output print in the order it does?
  *
- * You answer:
+ * You answer: Because of constructor chaining - every constructor  method will call up the chain until the class at the top has been reached
  *
  */
 
