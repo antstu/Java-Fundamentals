@@ -4,13 +4,32 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    ArrayList<Card> cards;
-    int handValue;
+    private ArrayList<Card> cards = new ArrayList<>();
+    private int handValue;
 
-    public Hand(ArrayList<Card> cards, int handValue) {
-        this.cards = cards;
-        this.handValue = handValue;
+
+
+    public int returnScore() {
+
+        return handValue;
+
     }
+
+    public boolean greaterThan21(){
+        if(handValue > 21)
+            return true;
+        else
+            return false;
+    }
+
+    public void addCard(Card card) {
+
+        for(Card c: cards) {
+            handValue += c.getCardValue();
+        }
+        cards.add(card);
+    }
+
 
     public ArrayList<Card> getCards() {
         return cards;
@@ -21,7 +40,7 @@ public class Hand {
     }
 
     public int getHandValue() {
-        return handValue;
+        return returnScore();
     }
 
     public void setHandValue(int handValue) {

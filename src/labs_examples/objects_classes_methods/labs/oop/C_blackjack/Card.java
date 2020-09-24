@@ -4,24 +4,49 @@ import java.util.Arrays;
 
 public class Card {
 
-    char[] suit = new char[]{'♠', '♦', '♥', '♣'};
+    char[] suitList = new char[]{'♠', '♦', '♥', '♣'};
+
+    char suit;
+
     int cardValue;
 
-    public Card(char[] suit, int cardValue) {
-        this.suit = suit;
+    public Card(int suit, int cardValue) {
+        this.suit = this.suitList[suit];
         this.cardValue = cardValue;
     }
 
-    public char[] getSuit() {
+
+
+    public char[] getSuitList() {
+        return suitList;
+    }
+
+    public void setSuitList(char[] suitList) {
+        this.suitList = suitList;
+    }
+
+    public char getSuit() {
         return suit;
     }
 
-    public void setSuit(char[] suit) {
+    public void setSuit(char suit) {
         this.suit = suit;
     }
 
     public int getCardValue() {
-        return cardValue;
+
+        System.out.println("cardValue is");
+
+        System.out.println(cardValue);
+
+        if(cardValue == 1){
+            return 11;
+        } else if(cardValue > 1 && cardValue < 10){
+            return cardValue;
+        } else {
+            return 10;
+        }
+
     }
 
     public void setCardValue(int cardValue) {
@@ -31,7 +56,8 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "suit=" + Arrays.toString(suit) +
+                "suitList=" + Arrays.toString(suitList) +
+                ", suit=" + suit +
                 ", cardValue=" + cardValue +
                 '}';
     }
