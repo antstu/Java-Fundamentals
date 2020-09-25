@@ -20,11 +20,14 @@ public class Player {
         this.hand = new Hand();
     }
 
-    public boolean computerAI(Player computerPlayer){
-        if(computerPlayer.getHand().getHandValue() < 16)
-            return true; //true if the computer player wants another card, If the computer player's hand currently has a value less than 16
+    public boolean computerAI(){
+        if(getHand().getHandValue() < 16) {
+            System.out.println("Computer takes another card");
+            return true;
+        }
 
-        return false; //false is the computer player does not want another card
+        System.out.println("Computer declines another card");
+        return false;
     }
 
     public String getName() {

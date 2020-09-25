@@ -39,23 +39,42 @@ public class BlackjackController {
         System.out.println(computer.getName() + ", " + computer.getHand().toString());
 
         while (user.getHand().greaterThan21() == false && computer.getHand().greaterThan21() == false) {
-            System.out.print("Would you like another card? (Please print y or no): ");
 
-            if(input.next().equals("y")) {
-                deck.deal(user);
-                System.out.println(user.getName() + ", " + user.getHand().toString());
-            }else{
-                System.out.println(user.getName() + ", " + user.getHand().toString());
-                System.out.println(computer.getName() + ", " + computer.getHand().toString());
-                if(computer.getHand().getHandValue() < user.getHand().getHandValue())
-                    System.out.println("You win!");
-                else
-                    System.out.println("You lose to the computer.");
-                return;
+
+            Boolean check = false;
+
+            while (check == false) {
+                System.out.print("Another card? y or n: ");
+                if (input.next().equals("y")) {
+                    deck.deal(user);
+                    System.out.println(user.getName() + ", " + user.getHand().toString());
+                } else {
+                    check = true;
+                }
             }
+
+            if (computer.computerAI()) {
+                deck.deal(computer);
+            }
+
+
+            System.out.println(user.getName() + ", " + user.getHand().toString());
+            System.out.println(computer.getName() + ", " + computer.getHand().toString());
+            if(computer.getHand().getHandValue() < user.getHand().getHandValue())
+                System.out.println("You win!");
+            else if (computer.getHand().getHandValue() == user.getHand().getHandValue()) {
+                System.out.println("Split pot");
+            }
+            else
+                System.out.println("You lose.");
+            break;
+
         }
         if (user.getHand().greaterThan21() == true) {
             System.out.print("You busted. ");
+        }
+        if (computer.getHand().greaterThan21() == true) {
+            System.out.print("Computer busted. ");
         }
 
 

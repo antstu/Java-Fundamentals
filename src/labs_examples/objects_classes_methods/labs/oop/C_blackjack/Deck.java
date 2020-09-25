@@ -49,14 +49,7 @@ public class Deck {
 
         currentHand.addCard(card);
 
-        System.out.println("here");
-
-
-
         usedCards.add(rand);
-
-
-
 
 
     }
@@ -72,14 +65,7 @@ public class Deck {
         }
     }
 
-
-
-
-
-
-
-
-        public Card[] getCards() {
+    public Card[] getCards() {
         return cards;
     }
 

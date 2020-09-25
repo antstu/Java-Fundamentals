@@ -24,10 +24,16 @@ public class Hand {
 
     public void addCard(Card card) {
 
+        handValue = 0;
+
+        cards.add(card);
+
         for(Card c: cards) {
             handValue += c.getCardValue();
+            System.out.println("Hand Value is ");
+            System.out.println(handValue);
         }
-        cards.add(card);
+
     }
 
 

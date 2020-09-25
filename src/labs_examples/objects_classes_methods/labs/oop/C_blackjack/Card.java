@@ -35,10 +35,6 @@ public class Card {
 
     public int getCardValue() {
 
-        System.out.println("cardValue is");
-
-        System.out.println(cardValue);
-
         if(cardValue == 1){
             return 11;
         } else if(cardValue > 1 && cardValue < 10){
