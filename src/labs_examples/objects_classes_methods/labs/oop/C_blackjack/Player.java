@@ -42,17 +42,6 @@ public class Player {
         return hand;
     }
 
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public int getPotValue() {
-        return potValue;
-    }
-
-    public void setPotValue(int potValue) {
-        this.potValue = potValue;
-    }
 
     @Override
     public String toString() {

@@ -5,8 +5,9 @@ import java.util.Arrays;
 
 public class Deck {
 
-    Card[] cards;
-    ArrayList<Integer> usedCards = new ArrayList<Integer>();;
+    private Card[] cards;
+    private ArrayList<Integer> usedCards = new ArrayList<Integer>();
+    private char[] suitList = new char[]{'♠', '♦', '♥', '♣'};
 
     public Deck() {
 
@@ -14,23 +15,13 @@ public class Deck {
         int cardCt = 0;
         for(int suit = 0; suit<=3; suit++) {
             for (int value = 1; value <= 13; value++) {
-                cards[cardCt] = new Card(suit, value);
+                cards[cardCt] = new Card(suitList[suit], value);
                 cardCt++;
             }
         }
 
     }
 
-//    public void shuffle() {
-//        for (int i = 51; i > 0; i-- ) {
-//            int rand = (int) (Math.random()*(i+1));
-//            Card temp = cards[i];
-//            cards[i] = cards[rand];
-//            cards[rand] = temp;
-//        }
-//
-//        usedCards = new ArrayList<Integer>();
-//    }
 
     public void deal(Player player) {
 
@@ -54,32 +45,6 @@ public class Deck {
 
     }
 
-
-    public boolean isCardUsed(int value) {
-        if (usedCards.contains(value)){
-            return true;
-
-        }
-        else {
-            return false;
-        }
-    }
-
-    public Card[] getCards() {
-        return cards;
-    }
-
-    public void setCards(Card[] cards) {
-        this.cards = cards;
-    }
-
-    public ArrayList<Integer> getUsedCards() {
-        return usedCards;
-    }
-
-    public void setUsedCards(ArrayList<Integer> usedCards) {
-        this.usedCards = usedCards;
-    }
 
     @Override
     public String toString() {

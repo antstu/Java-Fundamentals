@@ -9,11 +9,7 @@ public class Hand {
 
 
 
-    public int returnScore() {
 
-        return handValue;
-
-    }
 
     public boolean greaterThan21(){
         if(handValue > 21)
@@ -30,34 +26,34 @@ public class Hand {
 
         for(Card c: cards) {
             handValue += c.getCardValue();
-            System.out.println("Hand Value is ");
-            System.out.println(handValue);
         }
 
     }
 
 
-    public ArrayList<Card> getCards() {
-        return cards;
-    }
-
-    public void setCards(ArrayList<Card> cards) {
-        this.cards = cards;
-    }
-
     public int getHandValue() {
-        return returnScore();
+        int score = 0;
+        for (Card c: cards) {
+            score  += c.getCardValue();
+        }
+
+        return score;
     }
 
-    public void setHandValue(int handValue) {
-        this.handValue = handValue;
-    }
+
 
     @Override
     public String toString() {
-        return "Hand{" +
-                "cards=" + cards +
-                ", handValue=" + handValue +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        for( Card c: cards) {
+            sb.append(c.toString());
+            sb.append(" ");
+        }
+
+        sb.append("\n");
+        sb.append("score = ").append(getHandValue());
+
+        return sb.toString();
     }
 }
