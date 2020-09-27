@@ -5,6 +5,8 @@ public class Player {
     private String name;
     private Hand hand;
     private int potValue;
+    private int money;
+
 
 
     public Player(String name) {
@@ -40,6 +42,20 @@ public class Player {
 
     public Hand getHand() {
         return hand;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+
+        if (money == 0) {
+            System.out.println("Setting money amount to: 1000");
+            this.money = 1000;
+        }
+        else
+            this.money = money;
     }
 
 
