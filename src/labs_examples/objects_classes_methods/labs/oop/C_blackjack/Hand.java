@@ -8,8 +8,10 @@ public class Hand {
     private int handValue;
 
 
-
-
+    public void resetCards() {
+        cards = new ArrayList<>();
+        handValue = 0;
+    }
 
     public boolean greaterThan21(){
         if(handValue > 21)

@@ -6,6 +6,7 @@ public class Player {
     private Hand hand;
     private int potValue;
     private int money;
+    private int bet;
 
 
 
@@ -49,13 +50,15 @@ public class Player {
     }
 
     public void setMoney(int money) {
+        this.money = money;
+    }
 
-        if (money == 0) {
-            System.out.println("Setting money amount to: 1000");
-            this.money = 1000;
-        }
-        else
-            this.money = money;
+    public int getBet() {
+        return bet;
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
     }
 
 

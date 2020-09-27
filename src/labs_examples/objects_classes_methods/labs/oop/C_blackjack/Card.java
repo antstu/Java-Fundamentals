@@ -7,7 +7,7 @@ public class Card {
 
     private int cardValue;
 
-    private String[] values = {"A","1","2","3","4","5","6","7","8","9","10","J","Q","K"};
+    private String[] values = {"0","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 
     public Card(char suit, int cardValue) {
         this.suit = suit;

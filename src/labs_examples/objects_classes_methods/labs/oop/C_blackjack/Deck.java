@@ -36,7 +36,6 @@ public class Deck {
         Card card = cards[rand];
 
         Hand currentHand = player.getHand();
-        System.out.println("adding cards");
 
         currentHand.addCard(card);
 
