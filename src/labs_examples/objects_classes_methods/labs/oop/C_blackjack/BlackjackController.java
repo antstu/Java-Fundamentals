@@ -43,10 +43,10 @@ public class BlackjackController {
                 System.out.print("Please set a bet: ");
                 bet = input.nextInt();
                 input.nextLine();
-                if (bet < user.getMoney()) {
+                if (bet > user.getMoney()) {
                     System.out.println("You don't have enough money to place a bet that large");
                 }
-            } while(bet < user.getMoney());
+            } while(bet > user.getMoney() || bet < 0);
 
             user.setBet(bet);
 
@@ -59,11 +59,11 @@ public class BlackjackController {
 
 
             if (user.getHand().greaterThan21() == true) {
-                System.out.print("You busted.");
+                System.out.println("You busted.");
 
             }
             else if (computer.getHand().greaterThan21() == true) {
-                System.out.print("Computer busted.");
+                System.out.println("Computer busted.");
                 win = true;
             }
             else if(computer.getHand().getHandValue() < user.getHand().getHandValue()) {

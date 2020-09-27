@@ -44,17 +44,22 @@ public class Hand {
 
 
 
-    @Override
-    public String toString() {
+//    @Override
+//    why is override not working?
+    public String toString(Boolean hidden) {
         StringBuilder sb = new StringBuilder();
 
-        for( Card c: cards) {
-            sb.append(c.toString());
-            sb.append(" ");
+        if (hidden) {
+            sb.append(cards.get(0).toString());
         }
-
-        sb.append("\n");
-        sb.append("score = ").append(getHandValue());
+        else {
+            for( Card c: cards) {
+                sb.append(c.toString());
+                sb.append(" ");
+            }
+            sb.append("\n");
+            sb.append("score = ").append(getHandValue());
+        }
 
         return sb.toString();
     }
