@@ -6,6 +6,10 @@ public class Hand {
 
     private ArrayList<Card> cards = new ArrayList<>();
     private int handValue;
+    private Boolean hidden;
+
+
+
 
 
     public void resetCards() {
@@ -42,11 +46,13 @@ public class Hand {
         return score;
     }
 
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
 
-
-//    @Override
-//    why is override not working?
-    public String toString(Boolean hidden) {
+    //    why is override not working?
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
 
         if (hidden) {

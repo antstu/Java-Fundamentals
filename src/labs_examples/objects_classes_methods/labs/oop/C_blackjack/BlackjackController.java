@@ -25,13 +25,14 @@ public class BlackjackController {
         Player user = new Player(name);
         Player computer = new Player("computer");
 
+
+
         System.out.print("Enter money amount: ");
 
         int money = input.nextInt();
         input.nextLine();
 
         user.setMoney(money);
-
 
         while (user.getMoney() > 0 ) {
 
@@ -52,11 +53,8 @@ public class BlackjackController {
 
             dealCards(user,computer);
 
-
-            System.out.println(user.getName() + ", " + user.getHand().toString(false));
-            System.out.println(computer.getName() + ", " + computer.getHand().toString(true));
-
-
+            System.out.println(user.getName() + ", " + user.getHand().toString());
+            System.out.println(computer.getName() + ", " + computer.getHand().toString());
 
             if (user.getHand().greaterThan21() == true) {
                 System.out.println("You busted.");
@@ -105,8 +103,6 @@ public class BlackjackController {
 
         }
 
-
-
         System.out.println("Thanks for playing");
 
 
@@ -134,6 +130,9 @@ public class BlackjackController {
 
         Deck deck = new Deck();
 
+        user.getHand().setHidden(false);
+        computer.getHand().setHidden(true);
+
         user.getHand().resetCards();
         computer.getHand().resetCards();
 
@@ -149,18 +148,25 @@ public class BlackjackController {
 
 
         while (check == false && user.getHand().greaterThan21() == false) {
+            if (user.getHand().getHandValue() == 21) {
+                break;
+            }
             System.out.print("Another card? y or n: ");
             if (input.next().equals("y")) {
                     deck.deal(user);
-                    System.out.println(user.getName() + ", " + user.getHand().toString(false));
+                    System.out.println(user.getName() + ", " + user.getHand().toString());
                 } else {
                     check = true;
                 }
             }
 
-        while (computer.computerAI()) {
+        while (computer.computerAI() && user.getHand().greaterThan21() == false) {
             deck.deal(computer);
         }
+
+        computer.getHand().setHidden(false);
+
+        System.out.println(computer.getName() + ", " + computer.getHand().toString());
 
 
 
