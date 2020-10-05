@@ -9,9 +9,6 @@ public class Hand {
     private Boolean hidden;
 
 
-
-
-
     public void resetCards() {
         cards = new ArrayList<>();
         handValue = 0;
@@ -50,9 +47,8 @@ public class Hand {
         this.hidden = hidden;
     }
 
-    //    why is override not working?
-    @Override
-    public String toString() {
+
+    public String getHandString() {
         StringBuilder sb = new StringBuilder();
 
         if (hidden) {

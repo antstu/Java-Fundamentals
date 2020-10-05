@@ -7,7 +7,7 @@ public class Card {
 
     private int cardValue;
 
-    private String[] values = {"0","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+    private String[] values = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 
     public Card(char suit, int cardValue) {
         this.suit = suit;
@@ -26,11 +26,12 @@ public class Card {
     }
 
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(values[cardValue]).append(suit);
+        sb.append(values[cardValue - 1]).append(suit);
 
         return sb.toString();
     }

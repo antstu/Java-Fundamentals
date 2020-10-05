@@ -20,19 +20,13 @@ public class BlackjackController {
         System.out.print("Enter player name: ");
 
         name = input.next();
-        input.nextLine();
 
         Player user = new Player(name);
         Player computer = new Player("computer");
 
-
-
         System.out.print("Enter money amount: ");
 
-        int money = input.nextInt();
-        input.nextLine();
-
-        user.setMoney(money);
+        user.setMoney(input.nextInt());
 
         while (user.getMoney() > 0 ) {
 
@@ -43,18 +37,15 @@ public class BlackjackController {
             do {
                 System.out.print("Please set a bet: ");
                 bet = input.nextInt();
-                input.nextLine();
                 if (bet > user.getMoney()) {
                     System.out.println("You don't have enough money to place a bet that large");
                 }
-            } while(bet > user.getMoney() || bet < 0);
+            } while(bet > user.getMoney() || bet <= 0);
 
             user.setBet(bet);
 
             dealCards(user,computer);
 
-            System.out.println(user.getName() + ", " + user.getHand().toString());
-            System.out.println(computer.getName() + ", " + computer.getHand().toString());
 
             if (user.getHand().greaterThan21() == true) {
                 System.out.println("You busted.");
@@ -106,19 +97,6 @@ public class BlackjackController {
         System.out.println("Thanks for playing");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public static void dealCards(Player user, Player computer) {
@@ -142,9 +120,9 @@ public class BlackjackController {
         deck.deal(user);
         deck.deal(computer);
 
-        System.out.println(user.getName() + ", " + user.getHand().toString());
+        System.out.println(user.getName() + ", " + user.getHand().getHandString());
 
-        System.out.println(computer.getName() + ", " + computer.getHand().toString());
+        System.out.println(computer.getName() + ", " + computer.getHand().getHandString());
 
 
         while (check == false && user.getHand().greaterThan21() == false) {
@@ -154,11 +132,11 @@ public class BlackjackController {
             System.out.print("Another card? y or n: ");
             if (input.next().equals("y")) {
                     deck.deal(user);
-                    System.out.println(user.getName() + ", " + user.getHand().toString());
-                } else {
-                    check = true;
-                }
+                    System.out.println(user.getName() + ", " + user.getHand().getHandString());
+            } else {
+                check = true;
             }
+        }
 
         while (computer.computerAI() && user.getHand().greaterThan21() == false) {
             deck.deal(computer);
@@ -166,7 +144,7 @@ public class BlackjackController {
 
         computer.getHand().setHidden(false);
 
-        System.out.println(computer.getName() + ", " + computer.getHand().toString());
+        System.out.println(computer.getName() + ", " + computer.getHand().getHandString());
 
 
 

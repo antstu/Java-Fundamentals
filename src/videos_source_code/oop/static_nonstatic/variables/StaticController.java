@@ -11,9 +11,9 @@ public class StaticController {
         House house2 = new House(500, "234 B Street");
         House house3 = new House(1500, "567 C Street");
 
-//        System.out.println(house1.toString());
-//        System.out.println(house2.toString());
-//        System.out.println(house3.toString());
+//        System.out.println(house1.getHandString());
+//        System.out.println(house2.getHandString());
+//        System.out.println(house3.getHandString());
 
         System.out.println(house1.numHousesBuilt);
         System.out.println(house2.numHousesBuilt);
