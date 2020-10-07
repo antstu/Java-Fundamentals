@@ -13,10 +13,17 @@ class ThrowExceptionMethodExample {
     public static void main(String[] args){
         try {
 
-            int y = divide(1, 0);
+            int y = startDivide(1, 0);
         } catch(ArithmeticException exc){
-            System.out.println("AtrithmrticException");
+            System.out.println("ArithmrticException");
         }
+    }
+
+    public static int startDivide(int a, int b) throws ArithmeticException {
+
+        int x = divide(a,b);
+
+        return x;
     }
 
 
