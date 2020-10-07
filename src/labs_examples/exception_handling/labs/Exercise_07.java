@@ -33,15 +33,36 @@ class CustomExample {
             System.out.println(exc.toString());
 
         }
+
+        double[] vals = {5,0};
+        try {
+            double a = divide(vals);
+        } catch (ArithmeticException exc) {
+            System.out.println("Cannot divide by zero");
+            throw exc;
+        } catch (IndexOutOfBoundsException exc) {
+            System.out.println("Out of bounds");
+            throw exc;
+        }
+
     }
 
 
 
-        public static void checkAge(int x) throws TestException {
-            if (x > 0) {
-                System.out.println("Age is valid");
-            } else {
-                throw new TestException();
-            }
+    public static void checkAge(int x) throws TestException {
+        if (x > 0) {
+            System.out.println("Age is valid");
+        } else {
+            throw new TestException();
         }
+
+    }
+
+
+    public static double divide(double[] nums) throws ArithmeticException, IndexOutOfBoundsException{
+
+            return nums[0]/nums[1];
+
+    }
+
 }

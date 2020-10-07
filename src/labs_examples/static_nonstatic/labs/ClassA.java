@@ -6,6 +6,7 @@ public class ClassA {
         staticExample();
         ClassA staticTest = new ClassA();
         staticTest.nonStaticExample();
+        int x = Math.multiplyExact(2,4);
     }
 
     public static void staticExample(){
