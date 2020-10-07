@@ -7,3 +7,21 @@ package labs_examples.exception_handling.labs;
  *
  */
 
+
+class ThrowExceptionMethodExample {
+
+    public static void main(String[] args){
+        try {
+
+            int y = divide(1, 0);
+        } catch(ArithmeticException exc){
+            System.out.println("AtrithmrticException");
+        }
+    }
+
+
+    public static int divide(int a, int b) throws ArithmeticException {
+        return a/b;
+    }
+
+}

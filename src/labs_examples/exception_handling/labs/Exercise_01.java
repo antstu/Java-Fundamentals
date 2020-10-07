@@ -7,3 +7,24 @@ package labs_examples.exception_handling.labs;
  *
  */
 
+class TryCatchExample {
+
+    public static void main(String[] args) {
+
+        int[] numbers = {1,2,3};
+
+        try {
+
+            int x = numbers[0] + numbers[5];
+
+        } catch (ArrayIndexOutOfBoundsException exc) {
+
+            System.out.println(exc.getMessage());
+
+        }
+
+        System.out.println("completed");
+
+    }
+}
+
