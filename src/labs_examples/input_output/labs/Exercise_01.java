@@ -37,6 +37,7 @@ class Example {
             try {
                 inputStream.close();
                 bufferedInputStream.close();
+
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
