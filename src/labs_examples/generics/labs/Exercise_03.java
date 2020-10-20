@@ -2,6 +2,7 @@ package labs_examples.generics.labs;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -35,6 +36,19 @@ class Generic3 {
         checkPalindrome.add("testing");
 
         System.out.println(numOfPal(checkPalindrome));
+
+        //switch positions
+        String[] strings = {"hello", "my", "name", "is", "anthony"};
+        switchPositions(strings, 0,4);
+        System.out.println(Arrays.toString(strings));
+
+        //largest Element
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(2);
+        numbers.add(9);
+        numbers.add(13);
+        numbers.add(-5);
+        System.out.println("The largest number in the list is: " + largestElement(numbers));
 
 
 
@@ -76,6 +90,37 @@ class Generic3 {
         }
 
         return palCount;
+    }
+
+    public static <S> void switchPositions(S[] array, int pos1, int pos2) {
+
+        S curr;
+        curr = array[pos1];
+        array[pos1] =array[pos2];
+        array[pos2] = curr;
+        // how do i return this? dio i need to specify type?
+    }
+
+    public static <N extends Number> double largestElement(ArrayList<N> list) {
+
+        // i forget - when to use extends adn when to use without?
+
+        double largest = list.get(0).doubleValue();
+
+        for  (int i = 1; i < list.size(); i++) {
+
+            double curr = list.get(i).doubleValue();
+
+            if (largest <  curr) {
+
+                largest = curr;
+
+            }
+
+        }
+
+        return largest;
+
     }
 
 
