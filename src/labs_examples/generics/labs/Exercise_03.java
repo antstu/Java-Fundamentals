@@ -1,5 +1,6 @@
 package labs_examples.generics.labs;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,3 +18,68 @@ import java.util.Collection;
  *      4) Write a generic method to find the largest element within the range (begin, end) of a list.
  *
  */
+
+
+class Generic3 {
+
+    public static void main(String[] args) {
+
+        //sum
+        double sum = sum(10,2);
+        System.out.println(sum);
+
+        //num of elements
+        ArrayList<String> checkPalindrome = new ArrayList<>();
+        checkPalindrome.add("dad");
+        checkPalindrome.add("mom");
+        checkPalindrome.add("testing");
+
+        System.out.println(numOfPal(checkPalindrome));
+
+
+
+    }
+
+    public static <N extends Number, D extends Number> double sum(N a, D b) {
+
+        return a.doubleValue() + b. doubleValue();
+
+    }
+
+    public static boolean checkPalindrome(String str) {
+        int i = 0, j = str.length() - 1;
+
+
+        while (i < j) {
+
+            if (str.charAt(i) != str.charAt(j)){
+                return false;
+            }
+
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+
+    public static <C extends Collection<String>> int numOfPal(C collection) {
+
+        int palCount = 0;
+        for (String str: collection) {
+            boolean check = checkPalindrome(str);
+
+            if(check) {
+                palCount++;
+            }
+
+        }
+
+        return palCount;
+    }
+
+
+
+
+
+}
