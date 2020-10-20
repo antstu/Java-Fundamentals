@@ -13,11 +13,9 @@ class StartThreads{
         System.out.println("** Main Thread Start **");
         Counter count = new Counter();
         // TODO: better approach ?  -- number goes above 100
-        while (Counter.number <100) {
-            RunnableClass threadEins = new RunnableClass("Eins", count);
-            RunnableClass threadZwei = new RunnableClass("Zwei", count);
-            RunnableClass threadDrei = new RunnableClass("Drei", count);
-        }
+        RunnableClass threadEins = new RunnableClass("Eins", count);
+        RunnableClass threadZwei = new RunnableClass("Zwei", count);
+        RunnableClass threadDrei = new RunnableClass("Drei", count);
         System.out.println("** Main Thread End **");
 
     }
@@ -40,16 +38,24 @@ class RunnableClass implements Runnable {
     @Override
     public void run() {
         System.out.println("starting: " + thread.getName());
-            synchronized(counter) {
-                counter.counting();
+        while(Counter.number < 100) {
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            counter.counting();
+        }
+
     }
 }
 
 class Counter {
     static int number = 0;
-    public void counting() {
-        System.out.println(number);
+    public synchronized void counting() {
+        System.out.println(number + Thread.currentThread().getName());
         number++;
     }
+
 }

@@ -22,31 +22,29 @@ class CreateEncrypted {
     public static void main(String[] args) {
         //declare FileReader and FileWriter because it is a character stream
 
-        FileReader  inputStream = null;
-        FileWriter outputStream = null;
+        FileReader  reader = null;
+        FileWriter writer = null;
 
         try {
 //            initalize Reader and Writer
-            inputStream = new FileReader("src/labs_examples/input_output/files/KtoD.txt");
-            outputStream = new FileWriter("src/labs_examples/input_output/files/output_file.txt");
+            reader = new FileReader("src/labs_examples/input_output/files/KtoD.txt");
+            writer = new FileWriter("src/labs_examples/input_output/files/output_file.txt");
 
             int c;
             char ca;
 
-            while((c = inputStream.read()) != -1) {
+            while((c = reader.read()) != -1) {
 //                why cant i write ca.equals?
-
+                ca = (char) c;
 //                doesnt work
-
-                ca = (char) inputStream.read();
-                if ("a".equals(ca)) {
-                    outputStream.write("~");
+                if (ca == 'a') {
+                    writer.write("~");
                 }
-                else if ("e".equals(ca)) {
-                    outputStream.write("-");
+                else if (ca == 'e') {
+                    writer.write("-");
                 }
                 else {
-                    outputStream.write(ca);
+                    writer.write(ca);
                 }
             }
 
@@ -55,8 +53,8 @@ class CreateEncrypted {
         }
         finally {
             try {
-                inputStream.close();
-                outputStream.close();
+                reader.close();
+                writer.close();
             } catch (IOException exc2) {
                 System.out.println(exc2.getMessage());
             }

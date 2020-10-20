@@ -23,6 +23,7 @@ class AdditonalByteStreams {
 
 //        charStreams();
 //        byteStreams();
+        dataOutputStream();
         dataInputStream();
 
 
@@ -39,10 +40,6 @@ class AdditonalByteStreams {
 
         OutputStream output = null;
 
-
-
-
-
         try {
 
             inputStream = new FileInputStream("src/labs_examples/input_output/files/KtoD.txt");
@@ -51,15 +48,14 @@ class AdditonalByteStreams {
             output = new BufferedOutputStream(
                     new FileOutputStream("src/labs_examples/input_output/files/byte_buffer_test.txt"),  5);
 
-
-
-
             byte[] buffer = new byte[5];
             int bytesRead = 0;
+
             while ((bytesRead = bufferedInputStream.read(buffer)) != -1){
                 System.out.print(new String(buffer, 0, bytesRead));
                 output.write(buffer);
             }
+
         } catch (IOException exc) {
             exc.printStackTrace();
         } finally {
@@ -132,18 +128,32 @@ class AdditonalByteStreams {
     }
 
 
+    public static void dataOutputStream () {
+
+        try {
+            DataOutputStream inst = new DataOutputStream(new FileOutputStream("src/labs_examples/input_output/files/data_output.txt"));
+
+            inst.writeInt(7);
+            inst.writeUTF("hello");
+            inst.writeDouble(3.14);
+
+        } catch(IOException exc5) {
+            System.out.println(exc5.getMessage());
+        }
+
+    }
+
+
     public static void dataInputStream() {
 
 
-        try(InputStream input = new FileInputStream("src/labs_examples/input_output/files/KtoD.txt")) {
+        try(InputStream input = new FileInputStream("src/labs_examples/input_output/files/data_output.txt")) {
             DataInputStream inst = new DataInputStream(input);
-            int count = input.available();
-            byte[] ary = new byte[count];
-            inst.read(ary);
-            for (byte bt : ary) {
-                char k = (char) bt;
-                System.out.print(k + "-");
-            }
+            int i = inst.readInt();
+            String s = inst.readUTF();
+            double d = inst.readDouble();
+
+            System.out.println(i + " - " + s + " - " + d);
         } catch(IOException exc5) {
             System.out.println(exc5.getMessage());
         }
