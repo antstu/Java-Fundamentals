@@ -23,3 +23,73 @@ package labs_examples.lambdas.labs;
  *
  *
  */
+
+
+//TODO:anonymous inner class?
+
+//1
+
+@FunctionalInterface
+interface TestFunctionalInterface {
+
+    void testing();
+}
+
+
+
+
+//3
+
+@FunctionalInterface
+interface TestFunctionalParam {
+
+    int timestwo(int a);
+}
+
+@FunctionalInterface
+interface TestFunctionalParam2 {
+
+    String returnCombined(String a, String b);
+
+}
+
+
+
+
+
+
+
+
+
+class Testing {
+
+    public static void main(String[] args) {
+
+        //2
+        TestFunctionalInterface test = () -> {
+            System.out.println("hello");
+        };
+
+        test.testing();
+
+        // 4
+        TestFunctionalParam test2 = (int a) -> a * 2;
+
+        int a = test2.timestwo(5);
+
+        System.out.println(a);
+        
+        //6
+        TestFunctionalParam2 test3 = (String c, String d) ->  c + d;
+
+        String e = test3.returnCombined("Hello,", "GoodBye");
+
+        System.out.println(e);
+
+
+
+
+
+    }
+}
+
