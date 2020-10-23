@@ -9,7 +9,7 @@ package labs_examples.enumerations.labs;
  */
 
 
-class enumerations {
+class Enumerations {
     public enum Languages {
         PYTHON,
         JAVA,
@@ -21,17 +21,27 @@ class enumerations {
 
 }
 
-class parEnum {
+class ParEnum {
     public enum Snacks {
-        CHIPS(2), FRIES(3), CANDY(1);
-        Snacks(int price) {
+
+        CHIPS(2, 1.5), FRIES(3, 1.2), CANDY(1, 0.5);
+
+
+        Snacks(int price, double oz) {
             this.price = price;
+            this.oz = oz;
         }
 
         private final int price;
+        private final double oz;
+
 
         public int getPrice() {
             return price;
+        }
+
+        public double getOz() {
+            return oz;
         }
     }
 }

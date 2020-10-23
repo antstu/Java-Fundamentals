@@ -78,13 +78,29 @@ class Testing {
         int a = test2.timestwo(5);
 
         System.out.println(a);
-        
+
         //6
         TestFunctionalParam2 test3 = (String c, String d) ->  c + d;
 
         String e = test3.returnCombined("Hello,", "GoodBye");
 
         System.out.println(e);
+
+        test3 = (String c, String d) -> c + " " + d;
+
+        System.out.println(test3.returnCombined("Hello", "World"));
+
+
+        TestFunctionalParam2 obj = new TestFunctionalParam2() {
+            @Override
+            public String returnCombined(String a, String b) {
+                return a + b;
+            }
+        };
+
+
+        String hello = obj.returnCombined("Hello", "World");
+        System.out.println(hello);
 
 
 

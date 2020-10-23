@@ -96,9 +96,8 @@ class Generic3 {
 
         S curr;
         curr = array[pos1];
-        array[pos1] =array[pos2];
+        array[pos1] = array[pos2];
         array[pos2] = curr;
-        // how do i return this? dio i need to specify type?
     }
 
     public static <N extends Number> double largestElement(ArrayList<N> list) {
