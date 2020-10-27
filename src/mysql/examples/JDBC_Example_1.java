@@ -13,12 +13,12 @@ public class JDBC_Example_1 {
 
         try {
             // This will load the MySQL driver, each DB has its own driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Setup the connection with the DB
             connection = DriverManager
                     .getConnection("jdbc:mysql://localhost/college?"
-                            + "user=ryan&password=CodingNomadsFoEva!&useSSL=false");
+                            + "user=root&password=Anthony1&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC");
 
             // Statements allow to issue SQL queries to the database
             statement = connection.createStatement();
@@ -37,6 +37,12 @@ public class JDBC_Example_1 {
                 // print out the result
                 System.out.println("Course ID: " + id + " is " + name + " and has " + units + units);
             }
+
+
+            CallableStatement stmt = connection.prepareCall("{call someStoredProcedure(?, ?)}");
+            stmt.setString(1, "someParam");
+            stmt.setInt(2, 123);
+            ResultSet results = stmt.execute();
 
         } catch (SQLException exc) {
             System.out.println("Exception occurred");
