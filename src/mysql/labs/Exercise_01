@@ -26,11 +26,28 @@
  *
  *      6.) Write queries (and paste them below) for each of the following tasks:
  *          a. select all students
+ select * from college.students
  *          b. select all teacher who teach "Math" (choose a subject you included)
+ select * from college.teachers where subject ="Math"
  *          c. use a join query to select all students with a certain teacher
+ select s.*, t.subject, t.last_name from college.students s
+ JOIN college.teachers_students ts
+ ON s.id = ts.student_id
+ JOIN college.teachers t
+ ON ts.teacher_id = t.id
+ Where t.last_name = "Foo"
  *          d. use a join query to select all students with taking a certain subject
+ select s.*, t.subject, t.last_name from college.students s
+ JOIN college.teachers_students ts
+ ON s.id = ts.student_id
+ JOIN college.teachers t
+ ON ts.teacher_id = t.id
+ Where t.subject  = "Math"
  *          e. update a record in the student table
+ UPDATE `college`.`students` SET `age` = '56' WHERE (`id` = '6');
+
  *          f. add a record to the teacher table
+ INSERT INTO `college`.`students` (`first_name`, `last_name`, `email`, `age`) VALUES ('matt', 'stu', 'matt@gmail.com', '56');
  *
  *       7.) Export the schema to a dump file and copy it to this folder.
  *
