@@ -1,5 +1,8 @@
 package labs_examples.datastructures.stack.labs;
 
+
+import java.util.Arrays;
+
 /**
  *      Queues - Exercise_02
  *
@@ -16,3 +19,94 @@ package labs_examples.datastructures.stack.labs;
  *      6) contain a method to print out the data of all elements in the Stack
  *
  */
+
+class TestException extends Exception {
+
+    @Override
+    public String toString() {
+        return "list is empty";
+    }
+}
+
+
+
+class Stack {
+
+    String data[] = new String[10];
+
+
+    public static void main(String[] args) throws TestException {
+
+
+        Stack stack = new Stack();
+
+        stack.push("Anthony");
+        stack.push("Was");
+        stack.push("here");
+        stack.push("y'all");
+
+        stack.printAll();
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
+        stack.printAll();
+
+
+    }
+
+    public String pop() throws TestException{
+
+        // throw a custom exception when trying to pop an element from an empty Stack
+        if (data.length == 0) {
+        } else {
+            throw new TestException();
+        }
+
+        //FILO
+        int size = size();
+        String string = data[--size];
+        data[size] = null;
+
+        return string;
+
+    }
+
+
+    public void push(String str) {
+
+        int size = checkLength();
+        data[size] = str;
+
+    }
+
+    private int checkLength() {
+
+        int newSize = data.length;
+
+        if (size()/ data.length > 0.75 ) {
+
+            newSize = data.length * 2;
+            data = Arrays.copyOf(data, newSize);
+
+        } else if(size()/ data.length < 0.25 ) {
+
+            newSize = data.length / 2;
+            data = Arrays.copyOf(data, newSize);
+        }
+        return newSize;
+    }
+
+
+    private int size() {
+
+        return data.length;
+    }
+
+    private void printAll(){
+        for(int i=0; i < size(); i++) {
+            System.out.println(data[i]);
+        }
+    }
+}
