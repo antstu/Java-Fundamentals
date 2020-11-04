@@ -11,3 +11,89 @@ package labs_examples.datastructures.linkedlist.labs;
  *      Also, instead of using the index in the get() and remove() methods, these methods should
  *      get() and remove() based by the Node's value, not it's index.
  */
+
+
+
+
+
+
+public class Exercise_02<T> {
+    private Node head;
+
+    public Exercise_02(T data) {
+
+        if (data == null) {
+            head = null;
+        } else {
+            addToEnd(data);
+        }
+    }
+
+    public void addToEnd(T data) {
+        insert(data,0);
+    }
+
+    public void addToFront(T data) {
+        insert(data,  1);
+    }
+
+
+
+    public void insert(T data, int toFront) {
+
+
+        if (toFront == 1) {
+            if (head == null) {
+                head = new Node(data);
+            } else {
+                head = new Node(data, head);
+            }
+
+        } else {
+
+            if (head == null) {
+                head = new Node(data);
+            } else {
+
+                Node iterator = head;
+
+                    while (iterator.next != null) {
+                        iterator = iterator.next;
+                    }
+
+                    iterator.next = new Node(data);
+                }
+
+        }
+
+
+    }
+    public void remove(int removeFromFront) {
+        if (removeFromFront == 1) {
+            head = head.next;
+
+        } else {
+            Node iterator = head;
+
+            while (iterator.next != null) {
+                iterator = iterator.next;
+            }
+            iterator.next = null;
+
+
+        }
+    }
+
+    public int size() {
+        int count = 0;
+        Node iterator = head;
+
+        while (iterator != null) {
+            count++;
+            iterator = iterator.next;
+        }
+
+        return count;
+    }
+
+}
