@@ -13,12 +13,10 @@ class Exercise_03 {
     public Node head = null;
     public Node end = null;
 
-    public static void main(String[] args) {
-
-    }
 
 
-    public void insert(int data){
+
+    public void insert(String data){
 
         Node node = new Node(data);
         Node end = new Node(data);
@@ -36,3 +34,17 @@ class Exercise_03 {
 
 
 }
+
+class Testing {
+
+    public static void main(String[] args) {
+        Exercise_03 test = new Exercise_03();
+
+        test.insert("Hello");
+        test.insert("Goodbye");
+
+    }
+}
+
+
+
