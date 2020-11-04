@@ -39,10 +39,10 @@ public class JDBC_Example_1 {
             }
 
 
-            CallableStatement stmt = connection.prepareCall("{call someStoredProcedure(?, ?)}");
+            CallableStatement stmt = connection.prepareCall("{call GetAllCourses()}");
             stmt.setString(1, "someParam");
             stmt.setInt(2, 123);
-            ResultSet results = stmt.execute();
+            ResultSet results = stmt.executeQuery();
 
         } catch (SQLException exc) {
             System.out.println("Exception occurred");
