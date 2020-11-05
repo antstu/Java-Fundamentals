@@ -41,8 +41,9 @@ public class Exercise_01 {
         peopleMap.put(bob.getEmail(), bob);
 
 
-        Person example = peopleMap.get("caden@codingnomads.co");
-        System.out.println(example.toString());
+        // How to handle the nullpointerexception??
+        Person test = peopleMap.get("anthony@gmail.com");
+        System.out.println(test.toString());
 
         System.out.println("The size of the map is " + peopleMap.size());
 

@@ -2,8 +2,8 @@ package labs_examples.datastructures.linkedlist.labs;
 
 public class Node<T> {
 
-        T data;
-        Node next;
+        public T data;
+        public Node next;
 
         public Node(T data) {
             this.data = data;
