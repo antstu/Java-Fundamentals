@@ -1,9 +1,6 @@
 package labs_examples.datastructures.hashmap.labs;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 /**
  *  HashMaps Exercise_01
@@ -33,37 +30,45 @@ public class Exercise_01 {
 
         HashMap<String, Person> peopleMap = new HashMap();
 
-
-        // create a few Person objects
         Person anthony = new Person("Anthony", "Stuvecke", "anthony@gmail.com");
         Person phil = new Person("Phil", "Stuvecke", "phil@gmail.com");
-        Person tom = new Person("Tom", "Stuvecke", "tom@gmai.com");
+        Person tom = new Person("Tom", "Stuvecke", "tom@gmail.com");
         Person bob = new Person("Bob", "Stuvecke", "bob@gmail.com");
 
-
-        // "put" the Person objects into the HashMap
-        peopleMap.put(ryan.getEmail(), ryan);
-        peopleMap.put(kim.getEmail(), kim);
-        peopleMap.put(martin.getEmail(), martin);
-        peopleMap.put(caden.getEmail(), caden);
+        peopleMap.put(anthony.getEmail(), anthony);
+        peopleMap.put(phil.getEmail(), phil);
+        peopleMap.put(tom.getEmail(), tom);
+        peopleMap.put(bob.getEmail(), bob);
 
 
-        // demonstrate "getting" an element out of the HashMap
         Person example = peopleMap.get("caden@codingnomads.co");
         System.out.println(example.toString());
 
+        System.out.println("The size of the map is " + peopleMap.size());
 
-        // demonstrate iterating through the entries of a HashMap
-        Set entries = peopleMap.entrySet();
-        Iterator iterator = entries.iterator();
-        // loop through the entries
-        while(iterator.hasNext()) {
-            // get each Entry individually
-            Map.Entry person = (Map.Entry)iterator.next();
-            // print out the entry's key and value
-            System.out.print("The key is: "+ person.getKey()
-                    + " and the value is: " + person.getValue().toString());
-        }
+        System.out.println("Is 'anthony@gmail.com' in the hashmap? " + peopleMap.containsKey("anthony@gmail.com"));
+
+        System.out.println("key set : " + peopleMap.keySet());
+
+        System.out.println("Entry set : " + peopleMap.entrySet());
+
+        Person tommy = new Person("Tommy", "Stuvecke", "tommy@gmail.com");
+        peopleMap.putIfAbsent(tommy.getEmail(), tommy);
+
+        //create a new hasmap and copy everything over
+        HashMap<String, Person> peopleMapCopy = new HashMap();
+        peopleMapCopy.putAll(peopleMap);
+
+        peopleMap.remove("tommy@gmail.com");
+        peopleMap.replace("tom@gmail.com", tommy);
+
+        peopleMap.forEach((k,v)-> {
+            System.out.printf("key: " + k + " value: " + v);
+        });
+
+        peopleMap.clear();
+
+
     }
 
 }
