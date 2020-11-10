@@ -17,3 +17,38 @@ package labs_examples.datastructures.hashmap.labs;
  *      8) add at least one more method that you think could be useful to the HashMap
  *          review Java's built-in HashMap for inspiration
  */
+
+
+/**
+ * A Key-Value Pair
+ */
+class Entry<K, V> {
+    private K key;
+    private V value;
+    // it means this is a LinkedList
+    Entry next = null;
+
+    Entry(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+
+    public void setValue(V value) {
+        this.value = value;
+    }
+}
+
+
+public class Exercise_02<K,V> {
+
+    private Entry<K, V>[] table = new Entry[10];
+
+}
