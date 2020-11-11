@@ -51,7 +51,7 @@ public class Exercise_01 {
 
         System.out.println("key set : " + peopleMap.keySet());
 
-        System.out.println("Entry set : " + peopleMap.entrySet());
+        System.out.println("Item set : " + peopleMap.entrySet());
 
         Person tommy = new Person("Tommy", "Stuvecke", "tommy@gmail.com");
         peopleMap.putIfAbsent(tommy.getEmail(), tommy);

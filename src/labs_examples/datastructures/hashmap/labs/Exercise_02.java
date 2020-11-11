@@ -19,57 +19,85 @@ package labs_examples.datastructures.hashmap.labs;
  */
 
 
+import labs_examples.datastructures.linkedlist.examples.CustomLinkedList;
+
 /**
  * A Key-Value Pair
  */
-class Entry<K, V> {
-    private K key;
-    private V value;
+class Item<K, V> {
+    private K name;
+    private V content;
     // it means this is a LinkedList
-    Entry next = null;
+    Item next = null;
 
-    Entry(K key, V value) {
-        this.key = key;
-        this.value = value;
+    Item(K name, V content) {
+        this.name = name;
+        this.content = content;
     }
 
-    public K getKey() {
-        return key;
+    public K getName() {
+        return name;
     }
 
-    public V getValue() {
-        return value;
+    public V getContent() {
+        return content;
     }
 
-    public void setValue(V value) {
-        this.value = value;
+    public void setContent(V content) {
+        this.content = content;
     }
 }
 
 
 public class Exercise_02<K,V> {
 
-    private Entry<K, V>[] table = new Entry[10];
+    private Item<K, V>[] linkedList = new Item[10];
 
     private int getCode(K key) {
-        int index = Math.abs(key.hashCode() % table.length);
+        int index = Math.abs(key.hashCode() % linkedList.length);
         return index;
+    }
+
+    public CustomLinkedList<V> values() {
+        CustomLinkedList<V> values = new CustomLinkedList<>();
+
+        for (int i = 0; i < linkedList.length; i++) {
+            if (linkedList[i] != null) {
+                Item<K, V> p = linkedList[i];
+                while (p != null) {
+                    // if it is, traverse the list and add all keys
+                    values.add(p.getContent());
+                    p = p.next;
+                }
+
+            }
+        }
+
+        return values;
     }
 
     private void add(K key, V val) {
 
         int index = getCode(key);
 
-        Entry<K,V> newEntry = new Entry(key, val);
+        Item<K, V> newItem = new Item(key, val);
 
         //no collision
-        if (table[index] == null) {
-            table[index] = newEntry;
+        if (linkedList[index] == null) {
+            linkedList[index] = newItem;
         }
         //collison
         else {
             //first entry in index
-            Entry<K,V> first = table[index];
+            Item<K, V> first = linkedList[index];
+            // add to the front of the linked list, not the end
+            linkedList[index] = newItem;
+            newItem.next = first;
+
+        }
+
+        if (values().size() > linkedList.length * .5) {
+            rescale();
         }
 
 
@@ -79,29 +107,49 @@ public class Exercise_02<K,V> {
 
     private void rescale() {
         //copy of existing
-        Entry<K,V>[] old = table;
+        Item<K,V>[] old = linkedList;
         //new entry
-        table = new Entry[old.length * 3];
+        linkedList = new Item[old.length * 3];
+
 
         for (int i = 0; i < old.length; i++) {
             try {
-                // get the Entry at the index of "i" from the "old" table
-                Entry entry = old[i];
-                // call the put() method passing the key and value to add this element to the new table
-                add((K) entry.getKey(), (V) entry.getValue());
+                Item item = old[i];
+                add((K) item.getName(), (V) item.getContent());
 
-                // check to see if this entry is actually the start of a linked list
-                while (entry.next != null) {
-                    // if it is, traverse to the next node
-                    entry = entry.next;
-                    // and call the put() method to add this element
-                    add((K) entry.getKey(), (V) entry.getValue());
-                    // loop
+                while (item.next != null) {
+                    item = item.next;
+                    add((K) item.getName(), (V) item.getContent());
                 }
             } catch (Exception e) {
-                // do nothing - this is just to handle empty indexes
             }
         }
+    }
+
+
+    public V get(K key) {
+        int index = getCode(key);
+
+        if (linkedList[index] == null) {
+            printNonExistant();
+            return null;
+        }
+
+        Item<K, V> entry = linkedList[index];
+
+        while (entry.getName() != key) {
+
+            if (entry.next == null) {
+                return null;
+            }
+
+            entry = entry.next;
+        }
+        return entry.getContent();
+    }
+
+    private void printNonExistant() {
+        System.out.println("Element does not exist");
     }
 
 }
