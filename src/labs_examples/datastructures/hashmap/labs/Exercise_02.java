@@ -51,4 +51,57 @@ public class Exercise_02<K,V> {
 
     private Entry<K, V>[] table = new Entry[10];
 
+    private int getCode(K key) {
+        int index = Math.abs(key.hashCode() % table.length);
+        return index;
+    }
+
+    private void add(K key, V val) {
+
+        int index = getCode(key);
+
+        Entry<K,V> newEntry = new Entry(key, val);
+
+        //no collision
+        if (table[index] == null) {
+            table[index] = newEntry;
+        }
+        //collison
+        else {
+            //first entry in index
+            Entry<K,V> first = table[index];
+        }
+
+
+
+
+    }
+
+    private void rescale() {
+        //copy of existing
+        Entry<K,V>[] old = table;
+        //new entry
+        table = new Entry[old.length * 3];
+
+        for (int i = 0; i < old.length; i++) {
+            try {
+                // get the Entry at the index of "i" from the "old" table
+                Entry entry = old[i];
+                // call the put() method passing the key and value to add this element to the new table
+                add((K) entry.getKey(), (V) entry.getValue());
+
+                // check to see if this entry is actually the start of a linked list
+                while (entry.next != null) {
+                    // if it is, traverse to the next node
+                    entry = entry.next;
+                    // and call the put() method to add this element
+                    add((K) entry.getKey(), (V) entry.getValue());
+                    // loop
+                }
+            } catch (Exception e) {
+                // do nothing - this is just to handle empty indexes
+            }
+        }
+    }
+
 }
